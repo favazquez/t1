@@ -1,0 +1,23 @@
+<h1>Noticias Recientes</h1>
+<%= link_to 'Modo administrador', articles_path %>
+
+<table>
+  <tr>
+    <th>Titulo</th>
+    <th>Fecha Publicacion</th>
+    <th>Numero comentarios</th>
+    <th>Bajada</th>
+    <th>Cuerpo</th>
+  </tr>
+
+  <% @articles.order(:created_at).reverse.first(10).each do |article| %>
+    <tr>
+      <td><%= article.title %></td>
+      <td><%= article.created_at %></td>
+      <td><%= article.comments.count%></td>
+      <td><%= article.subhead %></td>
+      <td><%= article.text %></td>
+      <td><%= link_to 'Ver completa', article_path(article) %></td>
+    </tr>
+  <% end %>
+</table>
