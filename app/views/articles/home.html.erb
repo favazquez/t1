@@ -16,7 +16,7 @@
       <td><%= article.created_at %></td>
       <td><%= article.comments.count%></td>
       <td><%= article.subhead %></td>
-      <td><%= article.text %></td>
+      <td><%= truncate article.text, length: 1000 %></td>
       <td><%= link_to 'Ver completa', article_path(article) %></td>
     </tr>
   <% end %>
